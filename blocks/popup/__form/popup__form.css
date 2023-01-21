@@ -1,0 +1,16 @@
+.popup__form {
+    max-width: 358px;
+    min-height: 84px;
+    padding: 0 36px 48px 36px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(27px, max-content) minmax(27px, max-content);
+    grid-row-gap: 30px;
+    grid-auto-flow: column;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__form {
+        max-width: 238px;
+    }
+}

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Научиться учиться</title>
+    <link rel="stylesheet" href="./pages/index.css">
+  </head>
+  <body class="page">
+    <header class="header">
+      <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Mesto-Россия">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img class="avatar" src="./images/jack-iv-kusto.jpg" alt="Фото исследователя Жак-Ив-Кусто">
+        <div class="profile-info">
+          <h1 class="profile-info__name">Жак-Ив-Кусто</h1>
+          <p class="profile-info__myself">Исследователь океана</p>
+          <button class="edit-button">
+            <img class="edit-button__pencil" src="./images/pencil.svg" alt="Кнопка редактирования профиля">
+          </button>
+        </div>
+        <button class="add-button">
+          <img class="add-button__plus" src="./images/add-button-plus.svg" alt="Кнопка добавления карточки">
+        </button>
+      </section>
+      <section class="cards">
+        <ul class="cards__list">
+          <li class="card">
+            <img class="card__photo" src="./images/dombai.jpg" alt="Фото гора Домбай">
+            <div class="card__label">
+              <h2 class="card__title">Домбай</h2>
+              <button class="card__button">
+                <img class="card__like" src="./images/like.svg" alt="Кнопка метки нравится">
+              </button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__photo" src="./images/karachaevsk.jpg" alt="Фото Карачаевск">
+            <div class="card__label">
+              <h2 class="card__title">Карачаевск</h2>
+              <button class="card__button">
+                <img class="card__like" src="./images/like.svg" alt="Кнопка метки нравится">
+              </button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__photo" src="./images/elbrus.jpg" alt="Фото Эльбрус">
+            <div class="card__label">
+              <h2 class="card__title">Эльбрус</h2>
+              <button class="card__button">
+                <img class="card__like" src="./images/like.svg" alt="Кнопка метки нравится">
+              </button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__photo" src="./images/dombai.jpg" alt="Фото гора Домбай">
+            <div class="card__label">
+              <h2 class="card__title">Домбай</h2>
+              <button class="card__button">
+                <img class="card__like" src="./images/like.svg" alt="Кнопка метки нравится">
+              </button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__photo" src="./images/karachaevsk.jpg" alt="Фото Карачаевск">
+            <div class="card__label">
+              <h2 class="card__title">Карачаевск</h2>
+              <button class="card__button">
+                <img class="card__like" src="./images/like.svg" alt="Кнопка метки нравится">
+              </button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__photo" src="./images/elbrus.jpg" alt="Фото Эльбрус">
+            <div class="card__label">
+              <h2 class="card__title">Эльбрус</h2>
+              <button class="card__button">
+                <img class="card__like" src="./images/like.svg" alt="Кнопка метки нравится">
+              </button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <button class="popup__close" type="button"></button>
+        <form class="popup__form" name="formProfile">
+          <input required type="text" name="name" class="popup__form-name" value="" placeholder="Имя" />
+          <input required type="text" name="myself" class="popup__form-myself" value="" placeholder="Профессия" />
+        </form>
+        <button type="submit" class="popup__save-button">Сохранить</button>
+      </div>
+    </div>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
