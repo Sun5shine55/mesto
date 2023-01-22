@@ -1,4 +1,4 @@
-.profile-info {
+.profile__info {
     display: grid;
     grid-template-columns: minmax(300px, max-content) minmax(24px, max-content);
     grid-template-rows: minmax(39px, max-content) minmax(18px, max-content);
@@ -9,14 +9,14 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .profile-info {
+    .profile__info {
         grid-template-columns: minmax(250px, max-content) minmax(24px, max-content);
         grid-column-gap: 5px;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .profile-info {
+    .profile__info {
         max-width: 320px;
         margin: 0 auto;
         grid-row-gap: 0;
