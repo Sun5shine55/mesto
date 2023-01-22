@@ -1,6 +1,6 @@
 .profile__info {
     display: grid;
-    grid-template-columns: minmax(300px, max-content) minmax(24px, max-content);
+    grid-template-columns: minmax(300px, 500px) minmax(24px, max-content);
     grid-template-rows: minmax(39px, max-content) minmax(18px, max-content);
     grid-auto-flow: column;
     grid-row-gap: 16px;
@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 1023px) {
     .profile__info {
-        grid-template-columns: minmax(250px, max-content) minmax(24px, max-content);
+        grid-template-columns: minmax(250px, 400px) minmax(24px, max-content);
         grid-column-gap: 5px;
     }
 }
@@ -19,9 +19,9 @@
     .profile__info {
         max-width: 320px;
         margin: 0 auto;
-        grid-row-gap: 0;
+        grid-row-gap: 10px;
         grid-column-gap: 0;
-        grid-template-columns: minmax(18px, max-content) minmax(200px, max-content) minmax(18px, max-content);
+        grid-template-columns: minmax(18px, max-content) minmax(200px, 240px) minmax(18px, max-content);
         grid-template-rows: minmax(39px, max-content) minmax(18px, max-content);
     }
 }
