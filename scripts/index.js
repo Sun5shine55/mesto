@@ -25,6 +25,7 @@ function handleFormSubmit(evt) {                     // Обработчик «отправки» фо
     evt.preventDefault();                            // Эта строчка отменяет стандартную отправку формы.
     profileName.textContent = nameInput.value        // Получаем значение полей jobInput и nameInput из свойства value
     profileMyself.textContent = jobInput.value       // Выбираем элементы, куда должны быть вставлены значения полей. Вставляем новые значения с помощью textContent
+    closeClickBtn();
 }
 
 //Описываем обработчик событий по которым будет выполнятся функция 
