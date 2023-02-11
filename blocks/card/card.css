@@ -3,6 +3,7 @@
     grid-template-rows: minmax(282px, max-content) minmax(79px, max-content);
     grid-auto-flow: column;
     border-radius: 10px;
+    position: relative;
 }
 
 @media screen and (max-width:1279px) {
