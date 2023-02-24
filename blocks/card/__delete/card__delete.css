@@ -11,12 +11,10 @@
     box-sizing: border-box;
     background-position-x: left;
     background-position-y: bottom;
-    background-repeat-x: no-repeat;
-    background-repeat-y: no-repeat;
+    background-repeat: no-repeat;
     background-origin: initial;
     background-clip: initial;
     position: absolute;
-    z-index: 2;
 }
 
 .card__delete:hover {
