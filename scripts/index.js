@@ -91,11 +91,18 @@ function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
 }
+const popups = document.querySelectorAll('.popup')
 
-closeButtons.forEach((button) => {
-    const popup = button.closest('.popup');
-    button.addEventListener('click', () => closePopup(popup));
-  });
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (event) => {
+        if (event.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (event.target.classList.contains('popup__close')) {
+          closePopup(popup)
+        }
+    })
+})
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');

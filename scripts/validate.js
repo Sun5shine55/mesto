@@ -7,7 +7,7 @@ const addErrorMessage = (formSelector, inputSelector, errorMessage) => {
 const delErrorMessage = (formSelector, inputSelector) => {
   const errorClass = formSelector.querySelector(`.popup__item-error_field_${inputSelector.name}`);
   inputSelector.classList.remove(config.inputErrorClass);
-  errorClass.textContent = ''
+  errorClass.textContent = '';
 };
   
 const checkInputValidity = (formSelector, inputSelector) => {
@@ -19,9 +19,9 @@ const checkInputValidity = (formSelector, inputSelector) => {
   }
 };
    
-const setEventListeners = (formSelector, {submitButtonSelector, inputSelector}) => {
-  const submitButton = formSelector.querySelector(submitButtonSelector)
-  const inputList = Array.from(formSelector.querySelectorAll(inputSelector));
+const setEventListeners = (formSelector, config) => {
+  const submitButton = formSelector.querySelector(config.submitButtonSelector)
+  const inputList = Array.from(formSelector.querySelectorAll(config.inputSelector));
   toggleButtonState(inputList, submitButton);
   inputList.forEach((input) => {input.addEventListener('input', () => {
       checkInputValidity(formSelector, input);
