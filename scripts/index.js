@@ -126,14 +126,14 @@ function closePopupByEsc (event) {
 editButton.addEventListener('click', function() {
     openPopup(popupEditProfile);
     saveButton.removeAttribute("disabled");
-    saveButton.classList.remove('popup__save-button_inactive');
+    saveButton.classList.remove('popup__save-button_disabled');
     nameInput.value = profileName.textContent;        
     jobInput.value = profileMyself.textContent;  
 });
 addButton.addEventListener('click', function() {
     openPopup(popupNewPlace);
     createButton.setAttribute("disabled", "disabled");
-    createButton.classList.add('popup__save-button_inactive');
+    createButton.classList.add('popup__save-button_disabled');
 });
 
 formProfile.addEventListener('submit', handleFormSubmit);
