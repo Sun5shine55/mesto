@@ -52,7 +52,7 @@ export default class FormValidator {
     }
 
     resetValidation() {
-        this._toggleButtonState(); //<== управляем кнопкой ==
+        this._toggleButtonState(this._inputList, this._searchSubmitButton); //<== управляем кнопкой ==
   
         this._inputList.forEach((inputElement) => {
           this._delErrorMessage(inputElement) //<==очищаем ошибки ==

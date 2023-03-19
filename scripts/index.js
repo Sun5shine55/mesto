@@ -102,8 +102,6 @@ function createCardFormSubmit(event) {
     const card = createCard({ name: name, link: link });
     listCards.prepend(card);
     closePopup(popupNewPlace);
-    newPlaceForm.reset();
-    //formValidators[ newPlaceForm.getAttribute('name') ].resetValidation()
 }
 
 function handleProfileFormSubmit(event) {
@@ -111,21 +109,18 @@ function handleProfileFormSubmit(event) {
     profileName.textContent = nameInput.value;
     profileMyself.textContent = jobInput.value;
     closePopup(popupEditProfile);
-    //formValidators[ profileForm.getAttribute('name') ].resetValidation()
 }
 
 profileEditButton.addEventListener('click', function () {
-    openPopup(popupEditProfile);
-    profileSaveButton.removeAttribute("disabled");
-    profileSaveButton.classList.remove('popup__save-button_disabled');
     nameInput.value = profileName.textContent;
     jobInput.value = profileMyself.textContent;
-
+    editProfileValidator.resetValidation();
+    openPopup(popupEditProfile);
 });
 newPlaceAddButton.addEventListener('click', function () {
+    newPlaceForm.reset(); // обязательно очищаем форму, чтобы потом очистить ошибки и деактивировать кнопку
+    createCardValidator.resetValidation();
     openPopup(popupNewPlace);
-    newPlaceCreateButton.setAttribute("disabled", "disabled");
-    newPlaceCreateButton.classList.add('popup__save-button_disabled');
 });
 
 profileForm.addEventListener('submit', handleProfileFormSubmit);
@@ -136,24 +131,3 @@ const editProfileValidator = new FormValidator(config, profileForm);
 editProfileValidator.enableValidation();
 const createCardValidator = new FormValidator(config, newPlaceForm);
 createCardValidator.enableValidation();
-
-
-
-/*const formValidators = {}
-console.log(formValidators);
-// Включение валидации
-const enableValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.searchForm));
-  console.log(formList);
-  formList.forEach((formElement) => {
-    const validator = new FormValidator(formElement, config);
-// получаем данные из атрибута `name` у формы
-    const formName = formElement.getAttribute('name');
-    console.log(validator);
-   // вот тут в объект записываем под именем формы
-    formValidators[formName] = validator;
-   validator.enableValidation();
-  });
-};
-
-enableValidation(config);*/
