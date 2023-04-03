@@ -1,12 +1,12 @@
-import { popupImage, popupImageElem, popupImageElemTitle } from "./index.js"
-import { openPopup } from "./index.js"
+import { handleCardClick } from "../../../mesto-main/index.js"
 
 export default class Card {
-    constructor(data) {
-        this._name = data.name;
-        this._link = data.link;
-        this._alt = data.name;
+    constructor({name, link}) {
+        this._name = name;
+        this._link = link;
+        this._alt = name;
         this._templateCard = document.querySelector('.card-template');
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -28,7 +28,7 @@ export default class Card {
     _setEventListeners() {
         this._cardDelete = this._element.querySelector('.card__delete');
         this._cardImage.addEventListener('click', () => {
-            this._handleOpenPopup();
+            this._handleCardClick(this._name, this._link);
         });
         this._toggleLikebutton();
         this._cardDelete.addEventListener('click', () => {
@@ -36,17 +36,10 @@ export default class Card {
         });
     }
 
-    _handleOpenPopup() {
-        popupImageElem.src = this._link;
-        popupImageElem.alt = this._name;
-        popupImageElemTitle.textContent = this._name;
-        openPopup(popupImage);
-    }
-
     _toggleLikebutton() {
         this._cardLike = this._element.querySelector('.card__like');
-        this._cardLike.addEventListener('click', function (evt) {
-            evt.target.classList.toggle('card__like_type_color');
+        this._cardLike.addEventListener('click', function (event) {
+            event.target.classList.toggle('card__like_type_color');
         });
     }
 

@@ -1,81 +1,94 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Научиться учиться</title>
-    <link rel="stylesheet" href="./pages/index.css">
-  </head>
-  <body class="page">
-    <header class="header">
-      <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Mesto-Россия">
-    </header>
-    <main class="content">
-      <section class="profile">
-        <img class="profile__avatar" src="./images/jack-iv-kusto.jpg" alt="Фото исследователя Жак-Ив Кусто">
-        <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <p class="profile__myself">Исследователь океана</p>
-          <button class="profile__edit-button" type="button">
-            <img class="profile__pencil" src="./images/pencil.svg" alt="Кнопка редактирования профиля">
-          </button>
-        </div>
-        <button class="profile__add-button" type="button">
-          <img class="profile__plus" src="./images/add-button-plus.svg" alt="Кнопка добавления карточки">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="page">
+  <header class="header">
+    <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Mesto-Россия">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <img class="profile__avatar" src="./images/jack-iv-kusto.jpg" alt="Фото исследователя Жак-Ив Кусто">
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <p class="profile__myself">Исследователь океана</p>
+        <button class="profile__edit-button" type="button">
+          <img class="profile__pencil" src="./images/pencil.svg" alt="Кнопка редактирования профиля">
         </button>
-      </section>
-      <section class="cards">
-        <ul class="cards__list"></ul>
-      </section>
-    </main>
-    <template class="card-template">
-      <li class="card">
-        <img class="card__photo">
-        <button class="card__delete" type="button"></button>
-        <div class="card__label">
-          <h2 class="card__title"></h2>
-          <button class="card__like" type="button"></button>
-        </div>
-      </li>
-    </template>
-    <footer class="footer">
-      <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
-    </footer>
-    <div class="popup popup_edit-profile">
-      <div class="popup__container">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <button class="popup__close" type="button"></button>
-        <form class="popup__form" name="formProfile" novalidate>
-          <input required type="text" name="name" class="popup__field popup__field_type_name" placeholder="Имя" minlength="2" maxlength="40"/>
-          <span class="popup__item-error popup__item-error_field_name"></span>
-          <input required type="text" name="myself" class="popup__field popup__field_type_myself" placeholder="Профессия" minlength="2" maxlength="200"/>
-          <span class="popup__item-error popup__item-error_field_myself"></span>
-          <button type="submit" name="btnSaveProfile" class="popup__save-button">Сохранить</button>
-        </form>
       </div>
-    </div>
-    <div class="popup popup_new-place">
-      <div class="popup__container">
-        <h2 class="popup__title">Новое место</h2>
-        <button class="popup__close" type="button"></button>
-        <form class="popup__form" name="formNewPlace" novalidate>
-          <input required type="text" name="place-name" class="popup__field popup__field_type_place-name" placeholder="Название" minlength="2" maxlength="30"/>
-          <span class="popup__item-error popup__item-error_field_place-name"></span>
-          <input required type="url" name="place-link" class="popup__field popup__field_type_place-link" placeholder="Ссылка на картинку"/>
-          <span class="popup__item-error popup__item-error_field_place-link"></span>
-          <button type="submit" name="btnCreateNewPlace" class="popup__save-button">Создать</button>
-        </form>
+      <button class="profile__add-button" type="button">
+        <img class="profile__plus" src="./images/add-button-plus.svg" alt="Кнопка добавления карточки">
+      </button>
+    </section>
+    <section class="cards">
+      <ul class="cards__list"></ul>
+    </section>
+  </main>
+  <template class="card-template">
+    <li class="card">
+      <img class="card__photo">
+      <button class="card__delete" type="button"></button>
+      <div class="card__label">
+        <h2 class="card__title"></h2>
+        <button class="card__like" type="button"></button>
       </div>
+    </li>
+  </template>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+  </footer>
+  <div class="popup popup_edit-profile">
+    <div class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <button class="popup__close" type="button"></button>
+      <form class="popup__form" name="formProfile" novalidate>
+        <input required type="text" name="name" class="popup__field popup__field_type_name" placeholder="Имя"
+          minlength="2" maxlength="40" />
+        <span class="popup__item-error popup__item-error_field_name"></span>
+        <input required type="text" name="myself" class="popup__field popup__field_type_myself" placeholder="Профессия"
+          minlength="2" maxlength="200" />
+        <span class="popup__item-error popup__item-error_field_myself"></span>
+        <button type="submit" name="btnSaveProfile" class="popup__save-button">Сохранить</button>
+      </form>
     </div>
-    <div class="popup popup_image">
-      <div class="popup__container-image">
-        <img class="popup__image">
-        <h2 class="popup__title-image"></h2>
-        <button class="popup__close" type="button"></button>
-      </div>
+  </div>
+  <div class="popup popup_new-place">
+    <div class="popup__container">
+      <h2 class="popup__title">Новое место</h2>
+      <button class="popup__close" type="button"></button>
+      <form class="popup__form" name="formNewPlace" novalidate>
+        <input required type="text" name="place-name" class="popup__field popup__field_type_place-name"
+          placeholder="Название" minlength="2" maxlength="30" />
+        <span class="popup__item-error popup__item-error_field_place-name"></span>
+        <input required type="url" name="place-link" class="popup__field popup__field_type_place-link"
+          placeholder="Ссылка на картинку" />
+        <span class="popup__item-error popup__item-error_field_place-link"></span>
+        <button type="submit" name="btnCreateNewPlace" class="popup__save-button">Создать</button>
+      </form>
     </div>
-    <script defer type="module" src="scripts/FormValidator.js"></script>
-    <script defer type="module" src="scripts/index.js"></script>
-    <script defer type="module" src="scripts/Card.js"></script>
-  </body>
+  </div>
+  <div class="popup popup_image">
+    <div class="popup__container-image">
+      <img class="popup__image">
+      <h2 class="popup__title-image"></h2>
+      <button class="popup__close" type="button"></button>
+    </div>
+  </div>
+  <script type="module" src="./scripts/components/FormValidator.js"></script>
+  <script type="module" src="./index.js"></script>
+  <script type="module" src="./scripts/components/Card.js"></script>
+  <script type="module" src="./scripts/utils/constants.js"></script>
+  <script type="module" src="./scripts/components/Section.js"></script>
+  <script type="module" src="./scripts/components/Popup.js"></script>
+  <script type="module" src="./scripts/components/PopupWithForm.js"></script>
+  <script type="module" src="./scripts/components/PopupWithImage.js"></script>
+  <script type="module" src="./scripts/components/UserInfo.js"></script>
+</body>
+
 </html>
