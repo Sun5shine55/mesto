@@ -1,3 +1,4 @@
+import './pages/index.css';
 import Card from "./scripts/components/Card.js";
 import FormValidator from "./scripts/components/FormValidator.js";
 import Section from "./scripts/components/Section.js"
@@ -9,7 +10,10 @@ import {
     popupImageElem, popupImageElemTitle, config, popupEditProfile, popupNewPlace,
     profileEditButton, nameInput, jobInput, profileForm, namePlace, linkPlace
   } from "./scripts/utils/constants.js"
-
+import btnCloseImg from "./images/close.svg";
+import btnDeleteImg from "./images/delete.svg";
+import btnLikeImg from "./images/like.svg";
+import btnLikeColorImg from "./images/like-color.svg";
 
 const pictureOpened = new PopupWithImage(popupImage, popupImageElem, popupImageElemTitle)//экземпляр класса PopupWithImage
 pictureOpened.setEventListeners()

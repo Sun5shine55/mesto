@@ -1,4 +1,4 @@
-import { handleCardClick } from "../../../mesto-main/index.js"
+import { handleCardClick } from "../../index.js"
 
 export default class Card {
     constructor({name, link}) {
