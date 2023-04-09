@@ -1,4 +1,4 @@
-import { handleCardClick } from "../../index.js"
+import { handleCardClick } from "../pages/index.js"
 
 export default class Card {
     constructor({name, link}) {
@@ -27,20 +27,20 @@ export default class Card {
 
     _setEventListeners() {
         this._cardDelete = this._element.querySelector('.card__delete');
-        this._cardImage.addEventListener('click', () => {
-            this._handleCardClick(this._name, this._link);
-        });
-        this._toggleLikebutton();
         this._cardDelete.addEventListener('click', () => {
             this._removeCard();
         });
+        this._cardImage.addEventListener('click', () => {
+            this._handleCardClick(this._name, this._link);
+        });
+        this._cardLike = this._element.querySelector('.card__like');
+        this._cardLike.addEventListener('click', () => {
+            this._toggleLikeButton();
+        });
     }
 
-    _toggleLikebutton() {
-        this._cardLike = this._element.querySelector('.card__like');
-        this._cardLike.addEventListener('click', function (event) {
-            event.target.classList.toggle('card__like_type_color');
-        });
+    _toggleLikeButton() {
+        this._cardLike.classList.toggle('card__like_type_color');
     }
 
     _removeCard() {

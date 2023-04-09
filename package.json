@@ -69,7 +69,7 @@
     "webpack-dev-server": "^4.13.2"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack",
     "dev": "webpack serve"
   },
   "author": "",

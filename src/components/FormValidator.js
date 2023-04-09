@@ -1,10 +1,8 @@
 export default class FormValidator {
-    constructor(config, searchForm, searchSubmitButton, inputList) {
-        this.config = config;
-        this._searchForm = searchForm;
-        this._searchSubmitButton = searchSubmitButton;
-        this._inputList = inputList;
-    }
+    constructor(config, searchForm) { 
+        this.config = config; 
+        this._searchForm = searchForm; 
+    } 
 
     _addErrorMessage (searchInput, errorMessage) {
         const errorClass = this._searchForm.querySelector(`.popup__item-error_field_${searchInput.name}`);
@@ -39,15 +37,15 @@ export default class FormValidator {
         });
     }
 
-    _toggleButtonState(inputList, searchSubmitButton) {
-        const formIsValid = inputList.every((item) => item.validity.valid);
+    _toggleButtonState() {
+        const formIsValid = this._inputList.every((item) => item.validity.valid);
 
         if (formIsValid) {
-            searchSubmitButton.classList.remove(this.config.inactiveButtonClass);
-            searchSubmitButton.removeAttribute("disabled");
+            this._searchSubmitButton.classList.remove(this.config.inactiveButtonClass);
+            this._searchSubmitButton.removeAttribute("disabled");
         } else {
-            searchSubmitButton.classList.add(this.config.inactiveButtonClass);
-            searchSubmitButton.setAttribute("disabled", "disabled");
+            this._searchSubmitButton.classList.add(this.config.inactiveButtonClass);
+            this._searchSubmitButton.setAttribute("disabled", "disabled");
         }
     }
 
