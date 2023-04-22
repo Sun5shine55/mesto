@@ -27,6 +27,7 @@
     "glob-to-regexp": "^0.4.1",
     "graceful-fs": "^4.2.11",
     "has-flag": "^4.0.0",
+    "inline-source-map": "^0.6.2",
     "jest-worker": "^27.5.1",
     "json-parse-even-better-errors": "^2.3.1",
     "json-schema-traverse": "^0.4.1",
@@ -61,6 +62,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "cssnano": "^6.0.0",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.5",
     "postcss-loader": "^7.2.4",
@@ -70,7 +72,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC"

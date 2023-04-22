@@ -48,15 +48,21 @@ export default class FormValidator {
     const formIsValid = this._inputList.every((item) => item.validity.valid);
 
     if (formIsValid) {
-      this._searchSubmitButton.classList.remove(
-        this.config.inactiveButtonClass
-      );
-      this._searchSubmitButton.removeAttribute("disabled");
+      this.enableSubmitButton(this._searchSubmitButton);
     } else {
-      this._searchSubmitButton.classList.add(this.config.inactiveButtonClass);
-      this._searchSubmitButton.setAttribute("disabled", "disabled");
+      this.disableSubmitButton(this._searchSubmitButton);
     }
   }
+
+  enableSubmitButton = () => {
+    this._searchSubmitButton.removeAttribute("disabled");
+    this._searchSubmitButton.classList.remove(this.config.inactiveButtonClass);
+  };
+
+  disableSubmitButton = () => {
+    this._searchSubmitButton.setAttribute("disabled", "disabled");
+    this._searchSubmitButton.classList.add(this.config.inactiveButtonClass);
+  };
 
   resetValidation() {
     this._toggleButtonState(this._inputList, this._searchSubmitButton); //<== управляем кнопкой ==
