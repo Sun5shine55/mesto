@@ -8,25 +8,11 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupDeleteConfirm from "../components/PopupDeleteConfirm.js";
 import {
-  popupImage,
-  initialCards,
-  newPlaceForm,
   newPlaceAddButton,
-  listCards,
-  popupImageElem,
-  popupImageElemTitle,
   config,
-  popupEditProfile,
-  popupNewPlace,
   profileEditButton,
   nameInput,
   jobInput,
-  profileForm,
-  namePlace,
-  linkPlace,
-  popupDelete,
-  avatarForm,
-  popupAvatar,
   avatarEditButton,
 } from "../utils/constants.js";
 
@@ -82,21 +68,30 @@ function createCard(data, userId) {
 
 function handleLikeClick(id, isLiked, card) {
   if (isLiked) {
-    api.removeLike(id).then((data) => {
-      card.setLikes(data.likes);
-    });
+    api
+      .removeLike(id)
+      .then((data) => {
+        card.setLikes(data.likes);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   } else {
-    api.putLike(card.id).then((data) => {
-      card.setLikes(data.likes);
-    });
+    api
+      .putLike(card.id)
+      .then((data) => {
+        card.setLikes(data.likes);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   }
 }
 
 let userId = null;
 
-function createCardFormSubmit(inputValues) {
+function handleCardFormSubmit(inputValues) {
   popupPlace.renderSaving(true);
-  //const card = createCard(inputValues["place-name"], inputValues["place-link"]);
   api
     .addCard({
       placename: inputValues["place-name"],
@@ -116,7 +111,6 @@ function createCardFormSubmit(inputValues) {
 }
 
 function handleProfileFormSubmit(inputValues) {
-  //userInformation.setUserInfo(inputValues["name"], inputValues["myself"]);
   popupProfile.renderSaving(true);
   api
     .editUserData({ name: inputValues["name"], job: inputValues["myself"] })
@@ -155,22 +149,16 @@ const userInformation = new UserInfo({
   avatar: ".profile__avatar",
 });
 
-const popupPlace = new PopupWithForm(
-  ".popup_new-place",
-  newPlaceForm,
-  createCardFormSubmit
-); //экземпляр класса PopupWithForm
+const popupPlace = new PopupWithForm(".popup_new-place", handleCardFormSubmit); //экземпляр класса PopupWithForm
 
 const popupProfile = new PopupWithForm(
   ".popup_edit-profile",
-  profileForm,
   handleProfileFormSubmit
 ); //экземпляр класса PopupWithForm
 popupProfile.setEventListeners();
 
 const popupChangeAvatar = new PopupWithForm(
   ".popup_avatar",
-  avatarForm,
   handleChangeAvatar
 ); //экземпляр класса PopupWithForm
 popupChangeAvatar.setEventListeners();
@@ -195,11 +183,11 @@ Promise.all([api.getUserData(), api.getCards()])
 
 avatarEditButton.addEventListener("click", () => {
   popupChangeAvatar.open();
-  avatarValidator.disableSubmitButton();
+  formValidators["formAvatar"].resetValidation();
 });
 
 profileEditButton.addEventListener("click", function () {
-  editProfileValidator.resetValidation();
+  formValidators["formProfile"].resetValidation();
   const dataUser = userInformation.getUserInfo();
   nameInput.value = dataUser.name;
   jobInput.value = dataUser.job;
@@ -207,14 +195,24 @@ profileEditButton.addEventListener("click", function () {
 });
 
 newPlaceAddButton.addEventListener("click", function () {
-  createCardValidator.resetValidation();
+  formValidators["formNewPlace"].resetValidation();
   popupPlace.open();
 });
 popupPlace.setEventListeners();
 
-const editProfileValidator = new FormValidator(config, profileForm);
-editProfileValidator.enableValidation();
-const createCardValidator = new FormValidator(config, newPlaceForm);
-createCardValidator.enableValidation();
-const avatarValidator = new FormValidator(config, avatarForm);
-avatarValidator.enableValidation();
+const formValidators = {};
+
+// Включение валидации
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.searchForm));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    // получаем данные из атрибута `name` у формы
+    const formName = formElement.getAttribute("name");
+    // вот тут в объект записываем под именем формы
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(config);

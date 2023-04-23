@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
@@ -99,7 +98,7 @@
     <div class="popup__container">
       <h2 class="popup__title">Обновить аватар</h2>
       <button class="popup__close" type="button" id="avatarclose"></button>
-      <form class="popup__form-avatar" name="formAvatar" id="avatarform" novalidate>
+      <form class="popup__form popup__form_type_size" name="formAvatar" id="avatarform" novalidate>
         <input required type="url" name="avatar" class="popup__field popup__field_type_avatar" placeholder="Ссылка на картинку"/>
         <span class="popup__item-error popup__item-error_field_avatar"></span>
         <button class="popup__save-button" id="avatarbut" type="submit">Сохранить</button>

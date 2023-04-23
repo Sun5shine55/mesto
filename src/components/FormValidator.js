@@ -35,11 +35,11 @@ export default class FormValidator {
     this._inputList = Array.from(
       this._searchForm.querySelectorAll(this.config.searchInput)
     );
-    this._toggleButtonState(this._inputList, this._searchSubmitButton);
+    this._toggleButtonState();
     this._inputList.forEach((input) => {
       input.addEventListener("input", () => {
         this._checkInputValidity(input);
-        this._toggleButtonState(this._inputList, this._searchSubmitButton);
+        this._toggleButtonState();
       });
     });
   }
@@ -65,7 +65,7 @@ export default class FormValidator {
   };
 
   resetValidation() {
-    this._toggleButtonState(this._inputList, this._searchSubmitButton); //<== управляем кнопкой ==
+    this._toggleButtonState(); //<== управляем кнопкой ==
 
     this._inputList.forEach((inputElement) => {
       this._delErrorMessage(inputElement); //<==очищаем ошибки ==
